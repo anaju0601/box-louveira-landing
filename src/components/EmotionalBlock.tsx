@@ -10,10 +10,22 @@ export function EmotionalBlock() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_54%,var(--green-glow),transparent_36%)]" />
       <div className="relative mx-auto max-w-5xl">
         <p className="mb-5 text-[10px] font-black uppercase tracking-[0.22em] text-[var(--green-logo)] sm:mb-6 sm:text-xs sm:tracking-[0.24em]">
-          Decisao diaria
+          Decisao diária
         </p>
-        <h2 className="text-balance text-[2.25rem] font-black uppercase leading-[0.95] text-white sm:text-6xl lg:text-7xl">
-          Não é sobre treinar mais. É sobre se tornar alguém que não desiste.
+        <h2 className="text-[2rem] font-black uppercase leading-none text-white sm:text-6xl lg:text-6.5xl">
+
+          <span className="block">
+            NÃO É SOBRE TREINAR MAIS.
+          </span>
+
+          <span className="mt-3 block">
+            É SOBRE SE TORNAR
+          </span>
+
+          <span className="mt-3 block">
+            ALGUÉM QUE NÃO DESISTE.
+          </span>
+
         </h2>
       </div>
     </section>

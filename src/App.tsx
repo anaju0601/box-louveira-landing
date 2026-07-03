@@ -7,6 +7,7 @@ import { Method } from "./components/Method";
 import { Numbers } from "./components/Numbers";
 import { TestimonialsVideo } from "./components/TestimonialsVideo";
 import { Transformations } from "./components/Transformations";
+import { Schedule } from "./components/Schedule";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
       <Hero />
       <Transformations />
       <Benefits />
+      <Schedule />
       <Method />
       <Numbers />
       <TestimonialsVideo />

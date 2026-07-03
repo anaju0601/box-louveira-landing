@@ -12,7 +12,7 @@ export function Numbers() {
               key={item.label}
               className="flex items-start gap-4 rounded-md bg-black/[0.06] p-4 sm:bg-transparent sm:p-0"
             >
-              <Icon className="mt-2 size-7 shrink-0" strokeWidth={2.5} />
+              <Icon className="mt-1 size-9 shrink-0" strokeWidth={2.5} />
               <div>
                 <p className="text-3xl font-black uppercase leading-none sm:text-4xl lg:text-5xl">
                   {item.value}

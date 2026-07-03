@@ -71,6 +71,41 @@ export const benefits = [
   },
 ];
 
+export const schedules = [
+  {
+    title: "Cross Training",
+    description:
+      "Treinos para todos os níveis, com foco em condicionamento, força e performance.",
+    button: "Conhecer os Planos",
+    icon: Dumbbell,
+    times: [
+      "06:00",
+      "07:00",
+      "08:00",
+      "16:00",
+      "17:20",
+      "18:20",
+      "19:20",
+      "20:20",
+    ],
+  },
+
+  {
+    title: "Muay Thai",
+    description:
+      "Aulas para iniciantes e avançados, desenvolvendo técnica, disciplina e condicionamento.",
+    button: "Conhecer os Planos",
+    icon: Trophy,
+    times: [
+      "Terça • 06:30",
+      "Quinta • 06:30",
+      "Segunda • 19:00",
+      "Quarta • 19:00",
+      "Segunda a Quinta • 20:20",
+    ],
+  },
+];
+
 export const methodSteps = [
   { title: "Avaliação", text: "Entender ponto de partida, rotina e limites." },
   { title: "Estratégia", text: "Definir foco, frequência e caminho de evolução." },
@@ -81,10 +116,26 @@ export const methodSteps = [
 ];
 
 export const numbers = [
-  { value: "+500", label: "alunos impactados", icon: Users },
-  { value: "100%", label: "treinos orientados", icon: Dumbbell },
-  { value: "Toda semana", label: "novas transformações", icon: BarChart3 },
-  { value: "Ativa", label: "comunidade Box Louveira", icon: Flame },
+  {
+    value: "+130",
+    label: "alunos ativos",
+    icon: Users,
+  },
+  {
+    value: "8 anos",
+    label: "de história",
+    icon: Flame,
+  },
+  {
+    value: "+1000",
+    label: "vidas transformadas",
+    icon: Trophy,
+  },
+  {
+    value: "Treinos",
+    label: "Todos os dias",
+    icon: Dumbbell,
+  },
 ];
 
 export const testimonials = [

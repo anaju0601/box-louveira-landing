@@ -7,8 +7,10 @@ export function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col gap-8 md:flex-row md:items-center md:justify-between">
         <Logo />
         <div className="text-sm leading-7 text-white/56">
-          <p>Box Louveira Cross Training</p>
-          <p>Louveira, SP</p>
+          <p className="font-semibold text-white">Box Louveira Cross Training</p>
+          <p>Rua Evaristo Cavalli, 27</p>
+          <p>Louveira - SP</p>
+          <p>(19) 99809-9158</p>
         </div>
         <nav className="flex flex-wrap gap-5">
           {footerLinks.map((link) => (
