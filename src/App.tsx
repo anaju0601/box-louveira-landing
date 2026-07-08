@@ -8,6 +8,8 @@ import { Numbers } from "./components/Numbers";
 import { TestimonialsVideo } from "./components/TestimonialsVideo";
 import { Transformations } from "./components/Transformations";
 import { Schedule } from "./components/Schedule";
+import { Quote } from "./components/Quote";
+import { quotes } from "./data/site";
 
 export default function App() {
   return (
@@ -15,11 +17,31 @@ export default function App() {
       <Hero />
       <Transformations />
       <Benefits />
+      <Quote
+        quote={quotes.wellington.quote}
+        author={quotes.wellington.author}
+        align="right"
+      />
       <Schedule />
+      <Quote
+        quote={quotes.vera.quote}
+        author={quotes.vera.author}
+        align="left"
+      />
       <Method />
+      <Quote
+        quote={quotes.joyce.quote}
+        author={quotes.joyce.author}
+        align="right"
+      />
       <Numbers />
       <TestimonialsVideo />
       <EmotionalBlock />
+      <Quote
+        quote={quotes.marinalva.quote}
+        author={quotes.marinalva.author}
+        align="left"
+      />
       <FinalCta />
       <Footer />
     </main>

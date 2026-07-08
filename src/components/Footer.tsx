@@ -13,8 +13,6 @@ export function Footer() {
 
         <div className="grid gap-10 lg:grid-cols-[1fr_1fr_0.8fr] lg:items-start">
 
-          {/* Logo */}
-
           <div className="justify-self-start">
 
             <Logo />
@@ -26,8 +24,6 @@ export function Footer() {
             </p>
 
           </div>
-
-          {/* Contato */}
 
           <div className="justify-self-center">
 
@@ -64,8 +60,6 @@ export function Footer() {
             </div>
 
           </div>
-
-          {/* Links */}
 
           <div className="justify-self-end text-right">
 

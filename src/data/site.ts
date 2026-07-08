@@ -21,30 +21,34 @@ export const links = {
 };
 
 export const heroImages = [
-  "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2400&q=85",
-  "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=2400&q=85",
-  "https://images.unsplash.com/photo-1549476464-37392f717541?auto=format&fit=crop&w=2400&q=85",
-  "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&w=2400&q=85",
+  "/Hero/IMG_8323.jpg",
+  "/Hero/image00008.jpeg",
+  "/Hero/image00010.jpeg",   
 ];
 
 export const transformations = [
   {
-    label: "Evolução física",
-    text: "Placeholder para antes e depois real.",
-    image:
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=80",
+    label: "Evolução Física",
+    text: "Resultados reais conquistados com disciplina e constância.",
+
+    before: "/transformations/aluno1-before.jpeg",
+    after: "/transformations/aluno1-after.jpeg",
   },
+
   {
-    label: "Mais performance",
-    text: "Placeholder para resultado de aluno.",
-    image:
-      "https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=900&q=80",
+    label: "Mais performace",
+    text: "Resultados reais conquistados com disciplina e constância.",
+
+    before: "/transformations/aluno2-before.jpeg",
+    after: "/transformations/aluno2-after.jpeg",
   },
+
   {
     label: "Consistência",
-    text: "Placeholder para jornada semanal.",
-    image:
-      "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=900&q=80",
+    text: "Resultados reais conquistados com disciplina e constância.",
+
+    before: "/transformations/aluno3-before.jpeg",
+    after: "/transformations/aluno3-after.jpeg",
   },
 ];
 
@@ -163,4 +167,42 @@ export const visualIcons = {
   activity: Activity,
   arrow: ArrowUpRight,
   trophy: Trophy,
+};
+
+export const quotes = {
+  wellington: {
+    quote:
+      "Eu achava que Cross Training era só para quem já era atleta. Hoje vejo que qualquer pessoa consegue evoluir quando encontra um lugar que realmente acompanha você.",
+    author: "Wellington",
+  },
+
+  adilma: {
+    quote:
+      "Achei que não conseguiria acompanhar os treinos, mas descobri que cada pessoa evolui no seu próprio ritmo.",
+    author: "Adilma",
+  },
+
+  vera: {
+    quote:
+      "O Muay Thai me fez recuperar minha confiança e ainda encontrei uma equipe que me incentivou desde o primeiro dia.",
+    author: "Vera",
+  },
+
+  joyce: {
+    quote:
+      "Eu já tinha tentado academia várias vezes. Aqui foi a primeira vez que realmente consegui criar uma rotina.",
+    author: "Joyce",
+  },
+
+  marinalva: {
+    quote:
+      "Mais do que um lugar para treinar, encontrei pessoas que me acolheram e me fizeram sentir parte da família Box Louveira.",
+    author: "Marinalva",
+  },
+
+  bruna: {
+    quote:
+      "Eu tinha vergonha de começar. Hoje percebo que dar o primeiro passo foi a melhor decisão que tomei.",
+    author: "Bruna",
+  },
 };

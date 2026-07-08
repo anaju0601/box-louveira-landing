@@ -16,9 +16,9 @@ export function Hero() {
       <img
         src={heroImage}
         alt="Treino de alta intensidade em ambiente escuro"
-        className="absolute inset-0 h-full w-full object-cover object-[58%_center] sm:object-center"
+        className="absolute inset-0 h-full w-full object-cover object-[72%_center] lg:object-[65%_center]"
       />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.94)_0%,rgba(5,5,5,0.72)_42%,rgba(5,5,5,0.2)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.96)_0%,rgba(5,5,5,0.80)_42%,rgba(5,5,5,0.28)_100%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_42%,var(--green-glow),transparent_34%),radial-gradient(circle_at_82%_16%,rgba(110,242,107,0.14),transparent_28%)]" />
       <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#050505] to-transparent" />
 
