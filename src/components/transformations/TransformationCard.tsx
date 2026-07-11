@@ -1,228 +1,229 @@
-import { motion } from "motion/react";
-
-interface TransformationCardProps {
+interface Transformation {
   label: string;
   text: string;
   before: string;
   after: string;
-  index: number;
 }
 
-export function TransformationCard({
-  label,
-  text,
-  before,
-  after,
-  index,
-}: TransformationCardProps) {
-  const transformDelay = 1 + index * 0.15;
-  const scannerDuration = 1.25;
-  const revealDelay = transformDelay + scannerDuration;
+interface Props {
+  item: Transformation;
+}
 
+export function TransformationCard({ item }: Props) {
   return (
-    <div className="relative">
+    <article
+      className="
+        group
+        relative
+        mx-auto
+        flex
+        w-full
+        max-w-7xl
+        flex-col
+        items-center
+        rounded-md
+        border
+        border-white/10
+        bg-white/[0.025]
+        px-10
+        py-12
+        shadow-[inset_0_1px_0_rgba(255,255,255,.025)]
+        transition-all
+        duration-1000
+        ease-out
+        hover:-translate-y-0.5  
+        hover:border-[var(--green-logo)]/20
+        hover:bg-[var(--green-logo)]/[0.02]
+       "
+    >
 
-      {/* Glow */}
-      <motion.div
-        initial={{
-          opacity: 0,
-          scale: 0.9,
-        }}
-        whileInView={{
-          opacity: [0, 0, 0.32, 0.12, 0.2],
-          scale: [0.9, 0.9, 1.05, 1, 1.02],
-        }}
-        viewport={{ once: true }}
-        transition={{
-          duration: 2.6,
-          delay: transformDelay,
-          ease: "easeOut",
-        }}
-        className="absolute -inset-5 -z-10 rounded-[32px] bg-[radial-gradient(circle,var(--green-glow)_0%,transparent_72%)] blur-2xl"
-      />
+      {/* Imagens */}
+      <div className="flex items-center justify-center gap-6">
 
-      <motion.article
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.35 }}
-        transition={{
-          duration: 0.8,
-          delay: index * 0.5,
-        }}
-        className="group relative aspect-[5/6] overflow-hidden rounded-md border border-white/10 bg-zinc-950 shadow-[0_24px_80px_rgba(0,0,0,0.28)]"
-      >
-        {/* Borda */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{
-            opacity: [0, 0.7, 0],
-          }}
-          viewport={{ once: true }}
-          transition={{
-            delay: transformDelay + 0.12,
-            duration: 0.45,
-          }}
-          className="absolute inset-0 z-20 rounded-md ring-2 ring-[var(--green-logo)]/60"
-        />
-
-        {/* BADGE */}
-
-        <motion.div
-            initial={{
-                opacity: 1,
-                scale: 1,
-            }}
-            whileInView={{
-                opacity: [1, 1, 0],
-                scale: [1, 1, 0.9],
-            }}
-            viewport={{ once: true }}
-            transition={{
-                delay: revealDelay + 0.05,
-                duration: 0.25,
-            }}
-            className="absolute left-4 top-4 z-50 rounded-full border border-white/15 bg-black/60 px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-white backdrop-blur-md"
-            >
-            ANTES
-            </motion.div>
-
-            <motion.div
-            initial={{
-                opacity: 0,
-                scale: 0.9,
-            }}
-            whileInView={{
-                opacity: 1,
-                scale: 1,
-            }}
-            viewport={{ once: true }}
-            transition={{
-                delay: transformDelay + 1.75,
-                duration: 0.3,
-            }}
-            className="absolute left-4 top-4 z-50 rounded-full border border-[var(--green-logo)]/40 bg-black/75 px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-[var(--green-logo)] backdrop-blur-md"
-            >
-            ✓ DEPOIS
-        </motion.div>
-
-        {/* FOTO ANTES */}
-
-        <motion.img
-            src={before}
-            alt={`${label} - Antes`}
-            className="absolute inset-0 z-10 h-full w-full object-cover grayscale"
-            initial={{ 
-                opacity:1,
-                scale: 1 
-            }}
-            whileInView={{ 
-                opacity:0,
-                scale: 1.02 
-            }}
-            viewport={{ once: true }}
-            transition={{
-                delay: revealDelay,
-                duration:.30,
-                ease:"easeOut"
-            }}
-        />
-
-{/* SCANNER */}
-
-<motion.div
-  initial={{
-    left: "-10%",
-    opacity: 0,
-  }}
-  whileInView={{
-    left: "110%",
-    opacity: [0, 1, 1, 0],
-  }}
-  viewport={{ once: true }}
-  transition={{
-    delay: transformDelay,
-    duration: scannerDuration,
-    ease: "easeInOut",
-  }}
-  className="pointer-events-none absolute inset-y-0 z-30 w-12 -translate-x-1/2"
->
-
-  <div className="absolute left-1/2 top-0 h-full w-12 -translate-x-1/2 bg-[var(--green-logo)]/10 blur-3xl"/>
-
-  <div className="absolute left-1/2 top-0 h-full w-6 -translate-x-1/2 bg-[var(--green-logo)]/30 blur-xl"/>
-
-  <div className="absolute left-1/2 top-0 h-full w-[3px] -translate-x-1/2 bg-[var(--green-logo)] shadow-[0_0_25px_var(--green-logo)]"/>
-
-  <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-white"/>
-
-</motion.div>
-
-        {/* Flash */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{
-            opacity: [0, 0.08, 0],
-          }}
-          viewport={{ once: true }}
-          transition={{
-            duration: 0.18,
-            delay: revealDelay - 0.08,
-          }}
-          className="absolute inset-0 z-40 bg-[var(--green-logo)] mix-blend-screen"
-        />
-
-{/* FOTO DEPOIS */}
-
-<motion.img
-  src={after}
-  alt={`${label} - Depois`}
-  className="absolute inset-0 z-20 h-full w-full object-cover"
-  initial={{
-    opacity: 0,
-    scale: 1.03,
-  }}
-  whileInView={{
-    opacity: 1,
-    scale: 1,
-  }}
-  viewport={{ once: true }}
-  transition={{
-    delay: revealDelay,
-    duration: 0.35,
-    ease: "easeOut",
-  }}
-/>
-
-
-        {/* Overlay */}
-        <div className="absolute inset-0 z-30 bg-gradient-to-t from-black via-black/40 to-transparent" />
-
-        {/* Texto */}
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 15,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{ once: true }}
-          transition={{
-            delay: revealDelay,
-            duration: 0.35,
-          }}
-          className="absolute inset-x-0 bottom-0 z-40 p-4 sm:p-5"
+        {/* Antes */}
+        <div
+          className="
+            relative
+            overflow-hidden
+            rounded-md
+            border
+            border-white/[0.03]
+            bg-zinc-950
+            shadow-[0_18px_40px_rgba(0,0,0,.22)]
+            "
         >
-          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--green-logo)] sm:text-xs">
-            {label}
-          </p>
 
-          <p className="mt-2 text-sm font-bold text-white sm:text-base">
-            {text}
-          </p>
-        </motion.div>
-      </motion.article>
-    </div>
+          {/* Badge */}
+          <div className="
+            absolute
+            left-5
+            top-5
+            z-20
+            rounded-full
+            border
+            border-white/5
+            bg-black/55
+            px-3.5
+            py-1.5
+            backdrop-blur-md
+            transition-colors
+            duration-1000
+            group-hover:bg-black/60
+            "
+          >
+            <span className="text-[9px] font-black uppercase tracking-[0.34em] text-white">
+              ANTES
+            </span>
+          </div>
+
+          <img
+            draggable={false}
+            loading="lazy"
+            src={item.before}
+            alt={`${item.label} Antes`}
+              className="
+                h-[470px]
+                w-[360px]
+                object-cover
+                grayscale
+                transition-all
+                duration-1000
+                ease-out
+                group-hover:scale-[1.003]
+                group-hover:contrast-[1.02]
+                "
+          />
+
+        </div>
+
+        {/* Centro */}
+        <div className="flex w-12 shrink-0 justify-center">
+
+          <div className="relative flex items-center justify-center">
+
+              <div className="absolute h-px w-12 bg-white/10" />
+
+              <div
+                className="
+                  absolute
+                  h-10
+                  w-10
+                  rounded-full
+                  bg-[var(--green-logo)]/5
+                  blur-lg
+                  transition-all
+                  duration-1000
+                  group-hover:bg-[var(--green-logo)]/7
+                  "
+              />
+
+              <div
+                className="
+                  relative
+                  flex
+                  h-10
+                  w-10
+                  items-center
+                  justify-center
+                  rounded-full
+                  border
+                  border-[var(--green-logo)]/10
+                  bg-[#090909]
+                  transition-all
+                  duration-700
+                  group-hover:border-[var(--green-logo)]/15
+                  "
+              >
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                className="h-4 w-4 text-[var(--green-logo)]"
+              >
+                <path d="M5 12h14" />
+                <path d="m13 6 6 6-6 6" />
+              </svg>
+
+            </div>
+          </div>
+        </div>  
+
+        {/* Depois */}
+        <div
+          className="
+            relative
+            overflow-hidden
+            rounded-md
+            border
+            border-[var(--green-logo)]/10
+            bg-zinc-950
+            shadow-[0_18px_40px_rgba(0,0,0,.22)]
+            "
+        >
+
+          {/* Badge */}
+          <div className="
+            absolute 
+            left-5 
+            top-5 
+            z-20 
+            rounded-full 
+            border 
+            border-[var(--green-logo)]/10 
+            bg-black/55 
+            px-3.5 
+            py-1.5 
+            backdrop-blur-md
+            transition-colors
+            duration-1000
+            group-hover:bg-black/60"
+          >
+            <span className="text-[9px] font-black uppercase tracking-[0.34em] text-[var(--green-logo)]">
+              ✓ DEPOIS
+            </span>
+          </div>
+
+          <img
+            draggable={false}
+            loading="lazy"
+            src={item.after}
+            alt={`${item.label} Depois`}
+            className="
+              h-[470px]
+              w-[360px]
+              object-cover
+              -translate-y-1
+              transition-transform
+              duration-1000
+              ease-out
+              group-hover:scale-[1.003]
+              "
+            />
+
+        </div>
+
+      </div>
+
+      {/* Texto */}
+      <div className="mt-6 max-w-[540px] text-center">
+
+        <p className="text-[11px] font-black uppercase tracking-[0.32em] text-[var(--green-logo)]">
+          {item.label}
+        </p>
+
+        <h3 className="mt-2 text-2xl font-bold tracking-tight leading-tight text-white">
+          {item.text}
+        </h3>
+
+        <p className="mt-3 text-sm leading-7 text-zinc-400">
+          Resultado conquistado através de disciplina, constância e acompanhamento da equipe Box Louveira.
+        </p>
+
+      </div>
+
+    </article>
   );
-}   
+}

@@ -1,6 +1,6 @@
-import { transformations } from "../data/site";
 import { SectionHeader } from "./SectionHeader";
-import { TransformationCard } from "./transformations/TransformationCard";
+import { TransformationsList } from "./transformations/TransformationsList";
+import { transformations } from "../data/site";
 
 export function Transformations() {
   return (
@@ -13,15 +13,7 @@ export function Transformations() {
           description="Cada transformação representa disciplina, constância e uma decisão diária de não desistir."
         />
 
-        <div className="grid gap-4 md:grid-cols-3">
-          {transformations.map((item, index) => (
-            <TransformationCard
-              key={item.label}
-              {...item}
-              index={index}
-            />
-          ))}
-        </div>
+        <TransformationsList items={transformations} />
 
       </div>
     </section>
