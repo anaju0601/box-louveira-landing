@@ -1,4 +1,4 @@
-Logo oficial copiada para este diretorio com o nome:
+ogo oficial copiada para este diretorio com o nome:
 
 box-logo.jpg
 
