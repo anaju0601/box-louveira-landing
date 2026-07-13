@@ -144,16 +144,39 @@ export const numbers = [
 
 export const testimonials = [
   {
-    name: "Aluno Box Louveira",
-    text: "Entrei achando que não conseguiria acompanhar. Hoje treino com disciplina e vejo resultado toda semana.",
+    name: "Pedro",
+    role: "Aluno Box Louveira",
+
+    text:
+      "Os resultados apareceram muito mais rápido do que eu imaginava.",
+
+    title: "Feedback do Pedro",
+
+    video: "/TestimonialsVideo/Pedro.mp4",
   },
+
   {
-    name: "Aluna Box Louveira",
-    text: "O ambiente muda tudo. Voce chega cansada, mas sai com a sensação de que venceu o dia.",
+    name: "Ana",
+    role: "Aluna Box Louveira",
+
+    text:
+      "Aqui eu descobri que sou capaz de muito mais do que imaginava.",
+
+    title: "Feedback da Ana",
+
+    video: "/TestimonialsVideo/Ana.mp4",
   },
+
   {
-    name: "Aluno Box Louveira",
-    text: "Aqui eu aprendi a treinar de verdade: técnica, intensidade e constância.",
+    name: "Melhores momentos",
+    role: "Alunos Box Louveira",
+
+    text:
+      "A melhor parte não é chegar ao objetivo, é perceber o quanto você evoluiu no caminho.",
+
+    title: "Transformações Reais",
+
+    video: "/TestimonialsVideo/Melhoresmomentos.mp4",
   },
 ];
 
