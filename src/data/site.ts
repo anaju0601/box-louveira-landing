@@ -1,7 +1,6 @@
 import {
   Activity,
   ArrowUpRight,
-  BarChart3,
   Dumbbell,
   Flame,
   HeartPulse,
@@ -29,49 +28,54 @@ export const heroImages = [
 export const transformations = [
   {
     label: "Evolução Física",
-    text: "Resultados reais conquistados com disciplina e constância.",
-
+    text: 
+      `Ele também achou que não ia dar conta dos exercícios.
+      Começou no ritmo dele,com acompanhamento de perto.
+      O tempo e a constância fizeram o resto.`,
     before: "/transformations/aluno1-before.jpeg",
     after: "/transformations/aluno1-after.jpeg",
   },
 
   {
-    label: "Mais performace",
-    text: "Resultados reais conquistados com disciplina e constância.",
-
+    label: "Mais performance",
+    text: 
+      `Chegou cheia de receio, como muita gente chega. 
+      Ficou pelo grupo, pela leveza de treinar junto. 
+      Hoje faz parte da rotina dela.`,
     before: "/transformations/aluno2-before.jpeg",
     after: "/transformations/aluno2-after.jpeg",
   },
 
   {
     label: "Consistência",
-    text: "Resultados reais conquistados com disciplina e constância.",
+    text: `Não começou atleta. 
+    Começou do zero, com treino adaptado ao nível dele desde o primeiro dia. 
+    O que mudou não foi só o corpo — foi a disposição do dia a dia.`,
 
     before: "/transformations/aluno3-before.jpeg",
     after: "/transformations/aluno3-after.jpeg",
   },
 ];
-
 export const benefits = [
   {
     icon: Target,
-    title: "Treino com direção",
-    text: "Cada aula tem objetivo claro, intensidade controlada e progressão para você sair melhor do que entrou.",
+    title: "COMEÇA DE ONDE VOCÊ ESTÁ",
+    text: "Nunca treinou? Parou faz anos? Tudo bem. O treino se adapta a você — não o contrário. Seu primeiro dia é no seu ritmo.",
   },
   {
     icon: ShieldCheck,
-    title: "Técnica antes da carga",
-    text: "Movimentos bem ensinados, ajustes reais e seguranca para evoluir sem pular etapas.",
+    title: "NINGUÉM TE JOGA NO PESO",
+    text: "Movimento certo vem antes de qualquer peso. O professor fica do seu lado, corrige e ajusta. Sem pular etapa e sem se machucar.",
   },
   {
     icon: HeartPulse,
-    title: "Condicionamento real",
-    text: "Força, resistência e capacidade mental em um método feito para vida, não apenas para foto.",
+    title: "VOCÊ NÃO DEPENDE SÓ DA VONTADE",
+    text: "Já começou e parou várias vezes? A diferença aqui é que tem gente te esperando. Quando a motivação some, a turma te puxa.",
   },
   {
     icon: Users,
-    title: "Comunidade forte",
-    text: "Um ambiente que empurra voce para frente quando a motivação não aparece.",
+    title: "GENTE NORMAL, COMO VOCÊ",
+    text: "Mães, pais, quem trabalha o dia todo, quem nunca pisou numa academia. Aqui ninguém olha torto — todo mundo já foi novato um dia.",
   },
 ];
 
@@ -111,12 +115,30 @@ export const schedules = [
 ];
 
 export const methodSteps = [
-  { title: "Avaliação", text: "Entender ponto de partida, rotina e limites." },
-  { title: "Estratégia", text: "Definir foco, frequência e caminho de evolução." },
-  { title: "Treino", text: "Executar com técnica, intensidade e presençaa." },
-  { title: "Acompanhamento", text: "Corrigir, ajustar e manter consistência." },
-  { title: "Evolução", text: "Aumentar capacidade física e confiança." },
-  { title: "Resultado", text: "Transformar comportamento em performance." },
+  {
+    title: "CONVERSA",
+    text: "A gente escuta você primeiro. Quanto tempo parada, o que já tentou, o que te trava.",
+  },
+  {
+    title: "SEU PONTO DE PARTIDA",
+    text: "Sem comparação com ninguém. O treino começa de onde você está hoje.",
+  },
+  {
+    title: "PRIMEIRO TREINO",
+    text: "Alguém do seu lado, movimento por movimento. Sem peso, sem pressa.",
+  },
+  {
+    title: "ALGUÉM TE ESPERA",
+    text: "Sumiu? A gente chama. Aqui você não passa batido.",
+  },
+  {
+    title: "VOCÊ SENTE A DIFERENÇA",
+    text: "Subir escada sem cansar, dormir melhor, ter disposição. A vida muda antes do espelho.",
+  },
+  {
+    title: "VIRA ROTINA",
+    text: "Chega o dia em que você não precisa de motivação — você só não quer faltar.",
+  },
 ];
 
 export const numbers = [

@@ -37,10 +37,8 @@ export function TransformationCard({ item }: Props) {
        "
     >
 
-      {/* Imagens */}
       <div className="flex items-center justify-center gap-6">
 
-        {/* Antes */}
         <div
           className="
             relative
@@ -53,7 +51,6 @@ export function TransformationCard({ item }: Props) {
             "
         >
 
-          {/* Badge */}
           <div className="
             absolute
             left-5
@@ -96,7 +93,6 @@ export function TransformationCard({ item }: Props) {
 
         </div>
 
-        {/* Centro */}
         <div className="flex w-12 shrink-0 justify-center">
 
           <div className="relative flex items-center justify-center">
@@ -151,7 +147,6 @@ export function TransformationCard({ item }: Props) {
           </div>
         </div>  
 
-        {/* Depois */}
         <div
           className="
             relative
@@ -164,7 +159,6 @@ export function TransformationCard({ item }: Props) {
             "
         >
 
-          {/* Badge */}
           <div className="
             absolute 
             left-5 
@@ -207,18 +201,17 @@ export function TransformationCard({ item }: Props) {
 
       </div>
 
-      {/* Texto */}
-      <div className="mt-6 max-w-[540px] text-center">
+      <div className="mt-6 max-w-[850px] text-center">
 
         <p className="text-[11px] font-black uppercase tracking-[0.32em] text-[var(--green-logo)]">
           {item.label}
         </p>
 
-        <h3 className="mt-2 text-2xl font-bold tracking-tight leading-tight text-white">
+        <h3 className="mt-2 text-2xl font-bold tracking-tight leading-tight text-white whitespace-pre-line">
           {item.text}
         </h3>
 
-        <p className="mt-3 text-sm leading-7 text-zinc-400">
+        <p className="mt-3 text-sm leading-7 text-zinc-500">
           Resultado conquistado através de disciplina, constância e acompanhamento da equipe Box Louveira.
         </p>
 

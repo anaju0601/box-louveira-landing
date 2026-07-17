@@ -18,7 +18,7 @@ export function Hero() {
         alt="Treino de alta intensidade em ambiente escuro"
         className="absolute inset-0 h-full w-full object-cover object-[72%_center] lg:object-[65%_center]"
       />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.96)_0%,rgba(5,5,5,0.80)_42%,rgba(5,5,5,0.28)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.96)_0%,rgba(5,5,5,0.86)_42%,rgba(5,5,5,0.28)_100%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_42%,var(--green-glow),transparent_34%),radial-gradient(circle_at_82%_16%,rgba(110,242,107,0.14),transparent_28%)]" />
       <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#050505] to-transparent" />
 
@@ -38,25 +38,28 @@ export function Hero() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-4xl"
+            className="max-w-3xl"
           >
             <p className="mb-4 inline-flex max-w-full rounded-md border border-[var(--green-logo)]/35 bg-[var(--green-logo)]/10 px-3 py-2 text-[10px] font-black uppercase tracking-[0.18em] text-[var(--green-logo)] sm:mb-5 sm:px-4 sm:text-[11px] sm:tracking-[0.24em]">
-              Disciplina. Performance. Transformação.
+              POR QUE AQUI É DIFERENTE
             </p>
             <h1 className="max-w-4xl text-[2.2rem] font-black uppercase leading-none text-white sm:text-5xl lg:text-6xl">
-              <span className="block">Sua transformação começa</span>
-
-              <span className="mt-3 block">
-                quando você decide
+              <span className="block">
+                VOCÊ NÃO PRECISA
               </span>
 
               <span className="mt-3 block">
-                não desistir.
+                ESTAR EM FORMA
               </span>
-            </h1>            
+
+              <span className="mt-3 block text-[var(--green-logo)]">
+                PRA COMEÇAR.
+              </span>
+            </h1>         
             <p className="mt-5 max-w-xl text-pretty text-sm leading-7 text-white/72 sm:mt-6 sm:max-w-2xl sm:text-base">
-              Uma experiência de treino intensa, técnica e coletiva para quem
-              quer construir corpo, mente e constância.
+              Se você já tentou academia e parou, o problema não foi você.
+              Foi tentar sozinho, sem ninguém por perto.
+              Aqui é o contrário disso.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row">
               <a
