@@ -25,12 +25,6 @@ export function Hero() {
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col px-4 py-5 sm:px-8 sm:py-6 lg:px-10">
         <header className="flex items-center justify-between">
           <Logo />
-          <a
-            href={links.plans}
-            className="hidden rounded-md border border-white/18 bg-transparent px-5 py-3 text-xs font-black uppercase tracking-[0.18em] text-white transition duration-300 hover:border-[var(--green-cta)] hover:bg-[var(--green-cta)] hover:text-white sm:inline-flex"
-          >
-            Planos
-          </a>
         </header>
 
         <div className="flex flex-1 items-center pb-6 pt-8 sm:pb-8 sm:pt-12 lg:pt-10">
@@ -63,18 +57,18 @@ export function Hero() {
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row">
               <a
-                href={links.plans}
+                href={links.whatsapp}
                 className="cta-green-text inline-flex w-full items-center justify-center gap-3 rounded-md bg-[var(--green-cta)] px-5 py-3.5 text-sm font-black uppercase tracking-[0.12em] !text-black shadow-[0_0_34px_var(--green-glow)] transition-all duration-300 hover:bg-white hover:!text-[#45D845] sm:w-auto sm:px-7"
               >
-                Conhecer os Planos
-                <MoveRight className="size-5" />
+                <MessageCircle className="size-5" />
+                FAZER UMA AULA EXPERIMENTAL
               </a>
               <a
-                href={links.whatsapp}
+                href={links.plans}
                 className="inline-flex w-full items-center justify-center gap-3 rounded-md border border-white/22 bg-transparent px-5 py-3.5 text-sm font-black uppercase tracking-[0.12em] text-white backdrop-blur transition duration-300 hover:border-[var(--green-cta)] hover:bg-[var(--green-cta)] hover:text-white sm:w-auto sm:px-7"
               >
-                <MessageCircle className="size-5" />
-                Falar no WhatsApp
+                <MoveRight className="size-5" />
+                Conheça nossos planos
               </a>
             </div>
           </motion.div>

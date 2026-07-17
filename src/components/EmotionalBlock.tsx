@@ -15,15 +15,11 @@ export function EmotionalBlock() {
         <h2 className="text-[2rem] font-black uppercase leading-none text-white sm:text-6xl lg:text-6.5xl">
 
           <span className="block">
-            NÃO É SOBRE TREINAR MAIS.
+            VOCê NÃO PRECISA ESTAR PRONTO.
           </span>
 
           <span className="mt-3 block">
-            É SOBRE SE TORNAR
-          </span>
-
-          <span className="mt-3 block">
-            ALGUÉM QUE NÃO DESISTE.
+            SÓ PRECISA COMEÇAR.
           </span>
 
         </h2>

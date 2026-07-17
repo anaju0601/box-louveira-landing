@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 
 import { testimonials } from "../data/site";
@@ -7,35 +7,17 @@ import { SectionHeader } from "./SectionHeader";
 
 export function TestimonialsVideo() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
 
   useEffect(() => {
-  const video = videoRef.current;
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
 
-  if (!video) return;
+    window.addEventListener("resize", handleResize);
 
-  setIsPlaying(false);
-
-  video.pause();
-  video.currentTime = 0;
-
-  const playVideo = async () => {
-    try {
-      await video.play();
-    } catch {
-      // navegador pode bloquear temporariamente
-    }
-  };
-
-  playVideo();
-
-  return () => {
-    video.pause();
-    video.currentTime = 0;
-  };
-}, [activeIndex]);
-
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const active = testimonials[activeIndex];
   const nextTestimonial = () => {
@@ -52,21 +34,6 @@ export function TestimonialsVideo() {
     );
   };
 
-  const toggleVideo = async () => {
-    const video = videoRef.current;
-
-    if (!video) return;
-
-    try {
-      if (video.paused) {
-        await video.play();
-      } else {
-        video.pause();
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  };
 
   return (
     <section className="bg-[#080808] px-4 py-14 sm:px-8 sm:py-20 lg:px-10 lg:py-24">
@@ -77,7 +44,8 @@ export function TestimonialsVideo() {
           description="Cada história representa uma conquista real. Descubra como nossos alunos transformaram sua rotina, superaram desafios e encontraram uma nova forma de viver o movimento."
         />
         {/* ================= DESKTOP ================= */}
-        <div className="hidden gap-8 lg:grid lg:grid-cols-[1fr_0.85fr] lg:items-stretch">
+        {isDesktop && (
+        <div className="gap-8 lg:grid lg:grid-cols-[1fr_0.85fr] lg:items-stretch">
           <div className="flex h-full flex-col justify-center gap-4 pt-3">
             {testimonials.map((testimonial, index) => {
               const isActive = index === activeIndex;
@@ -121,6 +89,7 @@ export function TestimonialsVideo() {
               );
             })}
           </div>
+          
           <div className="relative flex items-start pt-2 justify-center">
             <div className="relative">
               <button
@@ -160,32 +129,11 @@ export function TestimonialsVideo() {
             </motion.div>
 
             <div className="px-2 pb-2">
-              {!isPlaying && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.25 }}
-                  className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none"
-                >
-                  <div className="rounded-full border border-white/10 bg-black/45 p-5 backdrop-blur-md">
-                    <Play
-                      size={34}
-                      className="ml-1 fill-white text-white"
-                    />
-                  </div>
-                </motion.div>
-              )}
               <AnimatePresence mode="wait">
                 <motion.video
-                  onPlay={() => setIsPlaying(true)}
-                  onPause={() => setIsPlaying(false)}
-                  onEnded={() => setIsPlaying(false)}
-                  muted
-
-                  onClick={toggleVideo}
-                  ref={videoRef}
                   key={active.video}
+                  controls
+                  autoPlay
                   playsInline
                   preload="metadata"
                   initial={{ opacity: 0 }}
@@ -215,8 +163,10 @@ export function TestimonialsVideo() {
             </div>
           </div>
         </div>
+        )}
         {/* ================= MOBILE ================= */}
-        <div className="space-y-4 lg:hidden">
+        {!isDesktop && (
+        <div className="space-y-4">
 
           {/* Depoimento ativo */}
           <motion.blockquote
@@ -275,28 +225,13 @@ export function TestimonialsVideo() {
             </motion.div>
 
             <div className="px-2 pb-2">
-              {!isPlaying && (
-                <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
-                  <div className="rounded-full border border-white/10 bg-black/45 p-5 backdrop-blur-md">
-                    <Play
-                      size={30}
-                      className="ml-1 fill-white text-white"
-                    />
-                  </div>
-                </div>
-              )}
-
               <AnimatePresence mode="wait">
                 <motion.video
-                  onPlay={() => setIsPlaying(true)}
-                  onPause={() => setIsPlaying(false)}
-                  onEnded={() => setIsPlaying(false)}
-                  muted
-                  ref={videoRef}
                   key={active.video}
+                  controls
+                  autoPlay
                   playsInline
                   preload="metadata"
-                  onClick={toggleVideo}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -306,8 +241,8 @@ export function TestimonialsVideo() {
                     w-full
                     rounded-[24px]
                     object-cover
-                    "
-                > 
+                  "
+                >
                   <source src={active.video} type="video/mp4" />
                 </motion.video>
               </AnimatePresence>
@@ -315,6 +250,7 @@ export function TestimonialsVideo() {
           </motion.div>
 
         </div>
+        )}
       </div>
     </section>
   );

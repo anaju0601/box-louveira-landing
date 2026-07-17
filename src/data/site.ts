@@ -10,13 +10,19 @@ import {
   Users,
 } from "lucide-react";
 
+const whatsappMessage = encodeURIComponent(
+  "Oi! Vim pelo site e quero saber como funciona a aula experimental na Box Louveira"
+);
+
+const whatsappNumber =
+  import.meta.env.VITE_WHATSAPP_NUMBER ?? "5519998099158";
+
 export const links = {
   plans:
     import.meta.env.VITE_PLANS_URL ??
-    "https://sua-pagina-de-planos.com.br",
-  whatsapp:
-    import.meta.env.VITE_WHATSAPP_URL ??
-    "https://wa.me/5519999999999",
+    "https://app.tecnofit.com.br/ng/online-sale/ODk5NA",
+
+  whatsapp: `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`,
 };
 
 export const heroImages = [
@@ -85,6 +91,7 @@ export const schedules = [
     description:
       "Treinos para todos os níveis, com foco em condicionamento, força e performance.",
     button: "Conhecer os Planos",
+    href: "https://app.tecnofit.com.br/ng/online-sale/ODk5NA/checkout/Mzc0NDky",
     icon: Dumbbell,
     times: [
       "06:00",
@@ -103,6 +110,7 @@ export const schedules = [
     description:
       "Aulas para iniciantes e avançados, desenvolvendo técnica, disciplina e condicionamento.",
     button: "Conhecer os Planos",
+    href: "https://app.tecnofit.com.br/ng/online-sale/ODk5NA/checkout/NTYzODg4",
     icon: Trophy,
     times: [
       "Terça • 06:30",
