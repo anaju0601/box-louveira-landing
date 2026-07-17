@@ -1,4 +1,5 @@
 import { TransformationCard } from "./TransformationCard";
+import { TransformationCardMobile } from "./TransformationCardMobile";
 
 interface Transformation {
   label: string;
@@ -13,12 +14,19 @@ interface Props {
 
 export function TransformationsList({ items }: Props) {
   return (
-    <div className="space-y-24">
+    <div className="space-y-10 lg:space-y-24">
       {items.map((item) => (
-        <TransformationCard
-          key={item.label}
-          item={item}
-        />
+        <div key={item.label}>
+          {/* Desktop */}
+          <div className="hidden lg:block">
+            <TransformationCard item={item} />
+          </div>
+
+          {/* Mobile */}
+          <div className="lg:hidden">
+            <TransformationCardMobile item={item} />
+          </div>
+        </div>
       ))}
     </div>
   );

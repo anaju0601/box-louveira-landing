@@ -7,14 +7,38 @@ import { SectionHeader } from "./SectionHeader";
 
 export function TestimonialsVideo() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [autoPlay, setAutoPlay] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+  const video = videoRef.current;
+
+  if (!video) return;
+
+  setIsPlaying(false);
+
+  video.pause();
+  video.currentTime = 0;
+
+  const playVideo = async () => {
+    try {
+      await video.play();
+    } catch {
+      // navegador pode bloquear temporariamente
+    }
+  };
+
+  playVideo();
+
+  return () => {
+    video.pause();
+    video.currentTime = 0;
+  };
+}, [activeIndex]);
 
 
   const active = testimonials[activeIndex];
   const nextTestimonial = () => {
-    setAutoPlay(false);
 
     setActiveIndex((prev) =>
       prev === testimonials.length - 1 ? 0 : prev + 1
@@ -22,43 +46,28 @@ export function TestimonialsVideo() {
   };
 
   const previousTestimonial = () => {
-    setAutoPlay(false);
 
     setActiveIndex((prev) =>
       prev === 0 ? testimonials.length - 1 : prev - 1
     );
   };
 
-  const toggleVideo = () => {
-    if (!videoRef.current) return;
+  const toggleVideo = async () => {
+    const video = videoRef.current;
 
-    if (videoRef.current.paused) {
-      videoRef.current.play().catch(() => {});
-      setIsPlaying(true);
-    } else {
-      videoRef.current.pause();
-      setIsPlaying(false);
+    if (!video) return;
+
+    try {
+      if (video.paused) {
+        await video.play();
+      } else {
+        video.pause();
+      }
+    } catch (err) {
+      console.error(err);
     }
   };
-    useEffect(() => {
-    if (!autoPlay) return;
 
-    const interval = setInterval(() => {
-      setActiveIndex((prev) =>
-        prev === testimonials.length - 1 ? 0 : prev + 1
-      );
-    }, 30000);
-
-      return () => clearInterval(interval);
-    }, [autoPlay]);
-    useEffect(() => {
-      if (!videoRef.current) return;
-
-      videoRef.current.currentTime = 0;
-      videoRef.current.play().catch(() => {});
-
-      setIsPlaying(true);
-    }, [activeIndex]);
   return (
     <section className="bg-[#080808] px-4 py-14 sm:px-8 sm:py-20 lg:px-10 lg:py-24">
       <div className="mx-auto max-w-7xl">
@@ -67,7 +76,8 @@ export function TestimonialsVideo() {
           title="O que muda quando você entra para o ritmo."
           description="Cada história representa uma conquista real. Descubra como nossos alunos transformaram sua rotina, superaram desafios e encontraram uma nova forma de viver o movimento."
         />
-        <div className="grid gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-stretch">
+        {/* ================= DESKTOP ================= */}
+        <div className="hidden gap-8 lg:grid lg:grid-cols-[1fr_0.85fr] lg:items-stretch">
           <div className="flex h-full flex-col justify-center gap-4 pt-3">
             {testimonials.map((testimonial, index) => {
               const isActive = index === activeIndex;
@@ -78,7 +88,6 @@ export function TestimonialsVideo() {
                   layout
                   onClick={() => {
                     setActiveIndex(index);
-                    setAutoPlay(false);
                   }}
                   initial={false}
                   animate={{
@@ -169,11 +178,14 @@ export function TestimonialsVideo() {
               )}
               <AnimatePresence mode="wait">
                 <motion.video
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
+                  onEnded={() => setIsPlaying(false)}
+                  muted
+
                   onClick={toggleVideo}
                   ref={videoRef}
                   key={active.video}
-                  autoPlay
-                  muted
                   playsInline
                   preload="metadata"
                   initial={{ opacity: 0 }}
@@ -202,6 +214,106 @@ export function TestimonialsVideo() {
 
             </div>
           </div>
+        </div>
+        {/* ================= MOBILE ================= */}
+        <div className="space-y-4 lg:hidden">
+
+          {/* Depoimento ativo */}
+          <motion.blockquote
+            layout
+            className="rounded-md border border-[var(--green-logo)]/20 bg-white/[0.025] px-5 py-4"
+          >
+            <p className="text-base leading-7 text-white">
+              "{active.text}"
+            </p>
+
+            <footer className="mt-4 flex items-center justify-between">
+              <span className="text-xs font-black uppercase tracking-[0.2em] text-[var(--green-logo)]">
+                {active.name}
+              </span>
+
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={previousTestimonial}
+                  className="rounded-full border border-white/10 p-2 transition hover:border-[var(--green-logo)] hover:text-[var(--green-logo)]"
+                >
+                  <ChevronLeft size={18} />
+                </button>
+
+                <button
+                  onClick={nextTestimonial}
+                  className="rounded-full border border-white/10 p-2 transition hover:border-[var(--green-logo)] hover:text-[var(--green-logo)]"
+                >
+                  <ChevronRight size={18} />
+                </button>
+              </div>
+            </footer>
+          </motion.blockquote>
+
+          {/* Vídeo */}
+          <motion.div
+            key={activeIndex}
+            initial={{ opacity: 0.8 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="overflow-hidden rounded-[28px] border border-white/10 bg-zinc-950"
+          >
+            <motion.div
+              key={active.name}
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35 }}
+              className="px-4 pt-4 pb-2 text-center"
+            >
+              <p className="text-sm font-black uppercase tracking-[0.25em] text-white">
+                {active.title}
+              </p>
+
+              <p className="mt-2 text-[10px] uppercase tracking-[0.28em] text-white/35">
+                {active.role}
+              </p>
+            </motion.div>
+
+            <div className="px-2 pb-2">
+              {!isPlaying && (
+                <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
+                  <div className="rounded-full border border-white/10 bg-black/45 p-5 backdrop-blur-md">
+                    <Play
+                      size={30}
+                      className="ml-1 fill-white text-white"
+                    />
+                  </div>
+                </div>
+              )}
+
+              <AnimatePresence mode="wait">
+                <motion.video
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
+                  onEnded={() => setIsPlaying(false)}
+                  muted
+                  ref={videoRef}
+                  key={active.video}
+                  playsInline
+                  preload="metadata"
+                  onClick={toggleVideo}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="
+                    h-[360px]
+                    w-full
+                    rounded-[24px]
+                    object-cover
+                    "
+                > 
+                  <source src={active.video} type="video/mp4" />
+                </motion.video>
+              </AnimatePresence>
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>
