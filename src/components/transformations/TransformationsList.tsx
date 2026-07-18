@@ -17,12 +17,9 @@ export function TransformationsList({ items }: Props) {
     <div className="space-y-10 lg:space-y-24">
       {items.map((item) => (
         <div key={item.label}>
-          {/* Desktop */}
           <div className="hidden lg:block">
             <TransformationCard item={item} />
           </div>
-
-          {/* Mobile */}
           <div className="lg:hidden">
             <TransformationCardMobile item={item} />
           </div>

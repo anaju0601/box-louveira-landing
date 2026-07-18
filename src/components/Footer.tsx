@@ -5,6 +5,7 @@ import {
 } from "lucide-react";
 import { footerLinks } from "../data/site";
 import { Logo } from "./Logo";
+import { trackLead } from "../utils/metaPixel";
 
 export function Footer() {
   return (
@@ -74,13 +75,11 @@ export function Footer() {
                 <a
                   key={link.label}
                   href={link.href}
+                  onClick={link.label === "WhatsApp" ? trackLead : undefined}
                   className="group inline-flex items-center gap-2 text-sm text-white/60 transition-all duration-300 hover:text-[var(--green-logo)]"
                 >
-
                   {link.label}
-
                   <ArrowUpRight className="size-4 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-
                 </a>
 
               ))}

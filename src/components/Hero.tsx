@@ -1,3 +1,4 @@
+import { trackLead } from "../utils/metaPixel";
 import { MessageCircle, MoveRight } from "lucide-react";
 import { motion } from "motion/react";
 import { useMemo } from "react";
@@ -58,6 +59,7 @@ export function Hero() {
             <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row">
               <a
                 href={links.whatsapp}
+                onClick={trackLead}
                 className="cta-green-text inline-flex w-full items-center justify-center gap-3 rounded-md bg-[var(--green-cta)] px-5 py-3.5 text-sm font-black uppercase tracking-[0.12em] !text-black shadow-[0_0_34px_var(--green-glow)] transition-all duration-300 hover:bg-white hover:!text-[#45D845] sm:w-auto sm:px-7"
               >
                 <MessageCircle className="size-5" />

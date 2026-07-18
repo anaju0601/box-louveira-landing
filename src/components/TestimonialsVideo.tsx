@@ -43,7 +43,7 @@ export function TestimonialsVideo() {
           title="O que muda quando você entra para o ritmo."
           description="Cada história representa uma conquista real. Descubra como nossos alunos transformaram sua rotina, superaram desafios e encontraram uma nova forma de viver o movimento."
         />
-        {/* ================= DESKTOP ================= */}
+
         {isDesktop && (
         <div className="gap-8 lg:grid lg:grid-cols-[1fr_0.85fr] lg:items-stretch">
           <div className="flex h-full flex-col justify-center gap-4 pt-3">
@@ -164,11 +164,10 @@ export function TestimonialsVideo() {
           </div>
         </div>
         )}
-        {/* ================= MOBILE ================= */}
+
         {!isDesktop && (
         <div className="space-y-4">
 
-          {/* Depoimento ativo */}
           <motion.blockquote
             layout
             className="rounded-md border border-[var(--green-logo)]/20 bg-white/[0.025] px-5 py-4"
@@ -200,7 +199,6 @@ export function TestimonialsVideo() {
             </footer>
           </motion.blockquote>
 
-          {/* Vídeo */}
           <motion.div
             key={activeIndex}
             initial={{ opacity: 0.8 }}
@@ -248,7 +246,6 @@ export function TestimonialsVideo() {
               </AnimatePresence>
             </div>
           </motion.div>
-
         </div>
         )}
       </div>

@@ -53,7 +53,6 @@ export function TransformationCardMobile({ item }: Props) {
 
     <div className="relative z-10 space-y-5">
 
-      {/* Antes */}
       <div className="relative overflow-hidden rounded-xl border border-white/10">
 
         <div className="absolute left-4 top-4 z-10 rounded-full bg-black/60 px-3 py-1">
@@ -69,8 +68,6 @@ export function TransformationCardMobile({ item }: Props) {
         />
 
       </div>
-
-      {/* Separador */}
 
       <div className="flex justify-center">
 
@@ -92,8 +89,6 @@ export function TransformationCardMobile({ item }: Props) {
 
       </div>
 
-      {/* Depois */}
-
       <div className="relative overflow-hidden rounded-xl border border-[var(--green-logo)]/10">
 
         <div className="absolute left-4 top-4 z-10 rounded-full bg-black/60 px-3 py-1">
@@ -109,8 +104,6 @@ export function TransformationCardMobile({ item }: Props) {
         />
 
       </div>
-
-      {/* Texto */}
 
       <div className="pt-2 text-center">
 
