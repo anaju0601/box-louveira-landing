@@ -9,12 +9,21 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
+
     "module": "ESNext",
     "moduleResolution": "Bundler",
+
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+
+    "jsx": "react-jsx",
+
+    "types": ["node"]
   },
-  "include": ["src", "vite.config.ts"]
+  "include": [
+    "src",
+    "api",
+    "vite.config.ts"
+  ]
 }

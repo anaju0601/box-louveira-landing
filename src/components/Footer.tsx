@@ -75,7 +75,17 @@ export function Footer() {
                 <a
                   key={link.label}
                   href={link.href}
-                  onClick={link.label === "WhatsApp" ? trackLead : undefined}
+                  onClick={
+                    link.label === "WhatsApp"
+                      ? async (e) => {
+                          e.preventDefault();
+
+                          await trackLead();
+
+                          window.location.href = link.href;
+                        }
+                      : undefined
+                  }
                   className="group inline-flex items-center gap-2 text-sm text-white/60 transition-all duration-300 hover:text-[var(--green-logo)]"
                 >
                   {link.label}
