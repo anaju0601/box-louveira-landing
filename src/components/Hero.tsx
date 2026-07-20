@@ -1,4 +1,7 @@
-import { trackLead } from "../utils/metaPixel";
+import {
+  trackLead,
+  trackInitiateCheckout,
+} from "../utils/metaPixel";
 import { MessageCircle, MoveRight } from "lucide-react";
 import { motion } from "motion/react";
 import { useMemo } from "react";
@@ -67,6 +70,7 @@ export function Hero() {
               </a>
               <a
                 href={links.plans}
+                onClick={trackInitiateCheckout}
                 className="inline-flex w-full items-center justify-center gap-3 rounded-md border border-white/22 bg-transparent px-5 py-3.5 text-sm font-black uppercase tracking-[0.12em] text-white backdrop-blur transition duration-300 hover:border-[var(--green-cta)] hover:bg-[var(--green-cta)] hover:text-white sm:w-auto sm:px-7"
               >
                 <MoveRight className="size-5" />
