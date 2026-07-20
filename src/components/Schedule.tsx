@@ -1,7 +1,6 @@
 import { MoveRight } from "lucide-react";
 import { schedules } from "../data/site";
 import { SectionHeader } from "./SectionHeader";
-import { trackInitiateCheckout } from "../utils/metaPixel";
 
 export function Schedule() {
   return (
@@ -71,7 +70,6 @@ export function Schedule() {
 
                 <a
                   href={schedule.href}
-                  onClick={trackInitiateCheckout}
                   className="cta-green-text mt-6 inline-flex w-full items-center justify-center gap-3 rounded-md bg-[var(--green-cta)] px-5 py-2.5 text-xs font-black uppercase tracking-[0.14em] !text-black shadow-[0_0_34px_var(--green-glow)] transition-all duration-300 hover:bg-white hover:!text-[#45D845]"
                 >
 
