@@ -12,19 +12,16 @@ function getCookie(name: string): string | undefined {
 }
 
 export async function trackLead() {
-  // Pixel (Browser)
+  // Meta Pixel (Browser)
   window.fbq?.("track", "Lead");
 
   // Cookies do Meta Pixel
   const fbp = getCookie("_fbp");
   const fbc = getCookie("_fbc");
 
-  console.log("FBP:", fbp);
-  console.log("FBC:", fbc);
-
-  // Conversions API (Servidor)
+  // Meta Conversions API (Servidor)
   try {
-    const response = await fetch("/api/meta-event", {
+    await fetch("/api/meta-event", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -36,13 +33,8 @@ export async function trackLead() {
         event_source_url: window.location.href,
       }),
     });
-
-    console.log("Meta CAPI Status:", response.status);
-
-    const result = await response.json();
-    console.log("Meta CAPI Response:", result);
   } catch (error) {
-    console.error("Meta CAPI:", error);
+    console.error("Erro ao enviar evento para a Meta:", error);
   }
 }
 
