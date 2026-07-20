@@ -17,8 +17,10 @@ async function sendServerEvent(
   eventName: "Lead" | "InitiateCheckout",
   eventId: string
 ) {
+  console.log("[Meta] sendServerEvent iniciado:", eventName);
+
   try {
-    await fetch("/api/meta-event", {
+    const response = await fetch("/api/meta-event", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,12 +33,20 @@ async function sendServerEvent(
         custom_data: {},
       }),
     });
+
+    console.log("[Meta] Status da API:", response.status);
+
+    const data = await response.json();
+
+    console.log("[Meta] Resposta da API:", data);
   } catch (error) {
-    console.error("Erro ao enviar evento para a Conversions API:", error);
+    console.error("[Meta] Erro ao enviar evento:", error);
   }
 }
 
 export async function trackLead() {
+  console.log("[Meta] trackLead executou");
+
   const eventId = createEventId();
 
   window.fbq?.(
@@ -55,6 +65,8 @@ export async function trackLead() {
 }
 
 export async function trackInitiateCheckout() {
+  console.log("[Meta] trackInitiateCheckout executou");
+
   const eventId = createEventId();
 
   window.fbq?.(
