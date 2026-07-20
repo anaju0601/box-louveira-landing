@@ -60,9 +60,15 @@ export function Hero() {
               Aqui é o contrário disso.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row">
-            <a
-              href={links.whatsapp}
-              onClick={trackLead}
+              <a
+                href={links.whatsapp}
+                onClick={async (e) => {
+                  e.preventDefault();
+
+                  await trackLead();
+
+                  window.location.href = links.whatsapp;
+                }}
                 className="cta-green-text inline-flex w-full items-center justify-center gap-3 rounded-md bg-[var(--green-cta)] px-5 py-3.5 text-sm font-black uppercase tracking-[0.12em] !text-black shadow-[0_0_34px_var(--green-glow)] transition-all duration-300 hover:bg-white hover:!text-[#45D845] sm:w-auto sm:px-7"
               >
                 <MessageCircle className="size-5" />

@@ -24,6 +24,9 @@ export default async function handler(
     event_source_url,
   } = req.body || {};
 
+  console.log("FBP recebido:", fbp);
+  console.log("FBC recebido:", fbc);
+
   console.log("Event Name:", event_name);
 
   if (event_name !== "Lead") {
