@@ -17,7 +17,12 @@ export default async function handler(
     });
   }
 
-  const { event_name } = req.body || {};
+  const {
+    event_name,
+    fbp,
+    fbc,
+    event_source_url,
+  } = req.body || {};
 
   console.log("Event Name:", event_name);
 
@@ -50,6 +55,14 @@ export default async function handler(
         event_name: "Lead",
         event_time: Math.floor(Date.now() / 1000),
         action_source: "website",
+        event_source_url,
+
+        user_data: {
+          client_user_agent: req.headers["user-agent"],
+
+          ...(fbp && { fbp }),
+          ...(fbc && { fbc }),
+        },
       },
     ],
   };

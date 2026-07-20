@@ -4,11 +4,22 @@ declare global {
   }
 }
 
+function getCookie(name: string): string | undefined {
+  return document.cookie
+    .split("; ")
+    .find((row) => row.startsWith(`${name}=`))
+    ?.split("=")[1];
+}
+
 export function trackLead() {
-  // Pixel (Browser)
+  // Pixel
   window.fbq?.("track", "Lead");
 
-  // Conversions API (Servidor)
+  // Cookies do Meta Pixel
+  const fbp = getCookie("_fbp");
+  const fbc = getCookie("_fbc");
+
+  // Conversions API
   fetch("/api/meta-event", {
     method: "POST",
     headers: {
@@ -16,6 +27,9 @@ export function trackLead() {
     },
     body: JSON.stringify({
       event_name: "Lead",
+      fbp,
+      fbc,
+      event_source_url: window.location.href,
     }),
   }).catch((error) => {
     console.error("Meta CAPI:", error);
