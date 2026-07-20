@@ -11,9 +11,23 @@ function getCookie(name: string): string | undefined {
     ?.split("=")[1];
 }
 
+function generateEventId() {
+  return `lead_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
+}
+
 export async function trackLead() {
+  // Gera um ID único para deduplicação
+  const eventId = generateEventId();
+
   // Meta Pixel (Browser)
-  window.fbq?.("track", "Lead");
+  window.fbq?.(
+    "track",
+    "Lead",
+    {},
+    {
+      eventID: eventId,
+    }
+  );
 
   // Cookies do Meta Pixel
   const fbp = getCookie("_fbp");
@@ -28,6 +42,7 @@ export async function trackLead() {
       },
       body: JSON.stringify({
         event_name: "Lead",
+        event_id: eventId,
         fbp,
         fbc,
         event_source_url: window.location.href,
