@@ -12,7 +12,6 @@ export default async function handler(
 
   const {
     event_name,
-    event_id,
     fbp,
     fbc,
     event_source_url,
@@ -39,7 +38,6 @@ export default async function handler(
       {
         event_name: "Lead",
         event_time: Math.floor(Date.now() / 1000),
-        event_id, 
         action_source: "website",
         event_source_url,
         user_data: {
