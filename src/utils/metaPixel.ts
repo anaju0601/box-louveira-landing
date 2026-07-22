@@ -12,9 +12,6 @@ function getCookie(name: string): string | undefined {
 }
 
 export async function trackLead() {
-  // Meta Pixel (Browser)
-  window.fbq?.("track", "Lead");
-
   // Cookies do Meta Pixel
   const fbp = getCookie("_fbp");
   const fbc = getCookie("_fbc");
