@@ -36,5 +36,5 @@ export async function trackLead() {
 }
 
 export function trackInitiateCheckout() {
-  window.fbq?.("track", "InitiateCheckout");
+  //window.fbq?.("track", "InitiateCheckout");
 }
